@@ -47,5 +47,17 @@ Estoy en búsqueda de mi primera oportunidad profesional como **desarrollador fr
 Me gusta crear herramientas útiles, con buen diseño y que realmente solucionen problemas.
 
 
-🔽 [Descargar ejecutable (.exe)](https://drive.google.com/tu-enlace)
+---
 
+## 📦 Descargar la App de Escritorio
+
+Si querés probar la aplicación de escritorio ya empaquetada para Windows, podés descargarla desde el siguiente enlace:
+
+🔽 **[Descargar BarberStock (.zip para Windows 64 bits)](https://drive.google.com/file/d/1Nldsyn0Tk3JAJ04fnO8axyiOk1kAJEPR/view?usp=sharing)**
+
+> 📁 Una vez descargado:
+> 1. Extraé el contenido del `.zip`
+> 2. Abrí el archivo `barberstock.exe`
+> 3. ¡Y comenzá a usar la app sin necesidad de instalación ni conexión a internet!
+
+---
