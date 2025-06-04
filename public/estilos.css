@@ -1,0 +1,280 @@
+body {
+  background-image: url('./images/ladrillo-negro.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-position: center; 
+  background-color: #333;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  #contenedorBody{
+    background-color: rgb(228, 228, 228);
+    margin: 50px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    filter: drop-shadow(0 0 20px #fff9ff);
+  }
+
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+
+  #movementsTable {
+    transition: all 0.3s ease;
+  }
+
+  button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: rgba(79, 77, 77, 0.847);
+    color: rgb(255, 255, 255);
+    font-size: large;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    color: black;
+    background-color: #d4dee9cc;
+  }
+  
+  #productFilter{
+    padding: 5px;
+  }
+
+  .modal {
+
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+   left: 0;
+  top: 0; 
+  width: 100%;
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+     align-items: center;
+    justify-content: center; 
+     border-radius: 8px;
+    
+  }
+  
+  .modal-content-addproduct {
+
+  position: relative;
+  background: #f4f4f4;
+  padding: 10px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 450px;
+  max-height: 90vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: 'Segoe UI', sans-serif;
+
+
+  }
+
+
+  .modal-content-deleteproduct{
+
+    background: rgb(228, 227, 227);
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    box-shadow: 0px 4px 16px rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column; 
+    max-width: 500px;
+    max-height: 90vh;         
+
+  }
+
+  .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.10);
+  z-index: 999;
+}
+
+.modal input, .modal select, .modal textarea {
+    padding: 10px;
+  margin:3px 3px 3px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+  .modal-content-editproduct {
+
+
+    background: rgb(228, 227, 227);
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    box-shadow: 0px 4px 16px rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column; 
+    max-width: 500px;
+    max-height: 90vh;     
+  }
+
+
+  .form-group {
+    margin-bottom: 1px;
+    margin-right: 40px;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: start;
+}
+  
+textarea {
+  resize: vertical;
+}
+
+  .hidden {
+    display: none;
+  }
+
+  .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .modal-buttons button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .modal-buttons button:first-child {
+    background-color: rgba(79, 77, 77, 0.847);
+    color: white;
+  }
+  
+  .modal-buttons button:first-child:hover {
+    color: black;
+    background-color: #d4dee9cc;
+  }
+
+  .modal-buttons button:last-child {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .modal-buttons button:last-child:hover {
+    background-color: #ddd;
+  }
+
+.filters label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.filters select,
+.filters input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.filters button {
+  padding: 10px 20px;
+  background-color: rgba(79, 77, 77, 0.847);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.filters button:hover {
+  color: black;
+  background-color: #d4dee9cc;
+}
+
+
+
+#inventoryTable, #movementsTable {
+  border-collapse: collapse; 
+  width: 100%; 
+}
+
+#inventoryTable th, #inventoryTable td,
+#movementsTable th, #movementsTable td {
+  border: 1px solid black; 
+  padding: 8px; 
+  text-align: left; 
+}
+
+
+#inventoryTable th, #movementsTable th {
+  background-color: #f2f2f2;
+}
+
+
+.low-stock {
+  background-color: rgb(251, 116, 116);
+  color: white; 
+}
+
+.containerFilters {
+  text-align: justify;
+}
+
+.btn-confirmar{
+  background-color: rgba(79, 77, 77, 0.847);
+  color: white;
+}
+
+.btn-confirmar:hover{
+  color: black;
+  background-color: #d4dee9cc;
+}

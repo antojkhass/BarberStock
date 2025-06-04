@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario BarberStock</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <div id="contenedorBody">
+  <div class="container">
+<section id="registerMovementSection">
+  <h2>Registrar Compra/Venta</h2>
+  <form id="registerMovementForm">
+    <div class="form-group">
+      <label for="productSelect">Producto:</label>
+      <select id="productSelect" required>
+        <!-- Opciones dinámicas -->
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="movementType">Tipo:</label>
+      <select id="movementType" required>
+        <option value="entrada">Entrada</option>
+        <option value="salida">Salida</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="quantity">Cantidad:</label>
+      <input type="number" id="quantity" step="1" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Descripción:</label>
+      <textarea id="description"></textarea>
+    </div>
+
+    <button type="submit">Registrar</button>
+  </form>
+</section>
+
+
+ 
+  <section id="inventorySection">
+    <h2>Inventario</h2>
+
+    <table id="inventoryTable">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Código</th> 
+          <th>Precio Costo</th>
+          <th>Precio Venta</th>
+          <th>Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Los productos se insertarán aquí dinámicamente -->
+      </tbody>
+    </table>
+  </section>
+
+
+  <button id="addProductBtn">Agregar Producto</button>
+  <button id="deleteProductBtn">Eliminar Producto</button>
+  <button id="editProductBtn">Editar Producto</button>
+     <br>
+     <br>
+
+  
+    <section id="movementsSection">
+     
+ <section class="containerFilters">
+  <h2>Historial de Movimientos</h2>
+  <div class="filters">
+  <label for="productFilter">Selecciona un producto para Buscar:</label>
+  <select id="productFilter">
+    <option value="">Todos los productos</option>
+  </select>
+  
+  <label for="startDate">Fecha de inicio de la busqueda:</label>
+  <input type="date" id="startDate">
+
+  <label for="endDate">Fecha final de la busqueda:</label>
+  <input type="date" id="endDate">
+
+  <button id="filterMovementsBtn">Buscar</button>
+
+</section>
+<br>
+<div id="movementsTableContainer">
+      <table id="movementsTable">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Tipo de operación</th>
+            <th>Cantidad</th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Los movimientos se insertarán aquí dinámicamente -->
+        </tbody>
+      </table>
+</div>
+    </section>
+  </div>
+<!-- Modal para agregar producto -->
+<div id="addProductModal" class="modal hidden">
+  <div class="modal-content-addproduct">
+
+    <h2>Agregar Producto</h2>
+
+    <form id="addProductForm">
+      <div class="form-group">
+      <input placeholder="Nombre" type="text" id="productName" required>
+    </div>
+
+      <div class="form-group">
+      <input placeholder="Código" type="text" id="codigo" name="codigo" required pattern="[0-9]+" />
+    </div>
+    
+
+    <div class="form-group">
+      <input placeholder="Categoría" type="text" id="category" required>
+      </div>
+
+      <div class="form-group">
+      <input placeholder="Precio Costo" type="number" id="costPrice" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+      <input placeholder="Precio Venta" type="number" id="salePrice" step="0.01" required>
+          </div>
+
+          <div class="form-group">
+      <input placeholder="Stock Inicial" type="number" id="stock" step="1" required>
+          </div>
+
+        <div class="modal-buttons">
+      <button type="submit">Agregar</button>
+      <button type="button" id="closeAddProductModal">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  </div>
+
+   <!-- Modal para eliminar producto -->
+   <div id="deleteProductModal" class="modal hidden">
+    <div class="modal-content-deleteproduct">
+        <h2>Eliminar Producto</h2>
+        <p>¿Estás seguro de que deseas eliminar este producto?</p>
+        <div class="form-group">
+          <label for="deleteProductSelect">Selecciona el producto:</label>
+          <select id="deleteProductSelect" required>
+            <!-- Opciones dinámicas se cargarán aquí -->
+          </select>
+        </div>
+        <div class="modal-buttons">
+          <button id="confirmDeleteProductBtn">Eliminar</button>
+          <button id="closeDeleteProductModal">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal para editar producto -->
+  <div id="editProductModal" class="modal hidden">
+    <div class="modal-content-editproduct">
+      <h2>Editar Producto</h2>
+  
+      <div class="form-group">
+        <label for="editProductSelect">Selecciona un producto:</label>
+        <select id="editProductSelect">
+          <option value="">Seleccione un producto</option>
+          <!-- Se llenará dinámicamente -->
+        </select>
+      </div>
+  
+      <!-- Campos de edición -->
+       
+      <form id="editProductForm" class="hidden">
+        <input type="hidden" id="editProductId"> 
+  
+        <div class="form-group">
+          <label for="editProductName">Nombre:</label>
+          <input type="text" id="editProductName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editCodigo">Código:</label>
+          <input type="text" id="editCodigo" name="editCodigo" required pattern="[0-9]+" />
+        </div>
+  
+        <div class="form-group">
+          <label for="editCategory">Categoría:</label>
+          <input type="text" id="editCategory" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="editCostPrice">Precio Costo:</label>
+          <input type="number" id="editCostPrice" step="0.01" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="editSalePrice">Precio Venta:</label>
+          <input type="number" id="editSalePrice" step="0.01" required>
+        </div>
+  
+        <div class="modal-buttons">
+          <button type="submit">Guardar Cambios</button>
+          <button type="button" id="closeEditProductModal">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
