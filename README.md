@@ -45,3 +45,7 @@ Este proyecto fue desarrollado con el objetivo de **practicar mis conocimientos 
 Soy desarrollador junior con experiencia construyendo soluciones reales para negocios, desde la idea hasta la implementación completa.  
 Estoy en búsqueda de mi primera oportunidad profesional como **desarrollador front-end o full stack**.  
 Me gusta crear herramientas útiles, con buen diseño y que realmente solucionen problemas.
+
+
+🔽 [Descargar ejecutable (.exe)](https://drive.google.com/tu-enlace)
+
