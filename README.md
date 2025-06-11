@@ -7,9 +7,9 @@
 ## 🚀 Tecnologías utilizadas
 
 - **Frontend**:  
-  - React (con Vite)  
-  - TypeScript  
-  - CSS puro (con diseño responsive y limpio)  
+  - HTML  
+  - CSS  
+  - JavaScript
 
 - **Backend**:  
   - Node.js  
